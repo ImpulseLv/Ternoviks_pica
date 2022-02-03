@@ -85,6 +85,37 @@ public class Ternoviks_Pica {
 		}
 		
 	}
+	
+	public static void izveletiesDzer(String dzer) {
+		try {
+			if(
+					dzer.equals("Kola")) {
+				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
+				PrintWriter raksta = new PrintWriter(fw) ;
+				fw.write(dzer+" | ");
+				fw.close();
+				JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
+			}else if(dzer.equals("Fanta")) {
+				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
+				PrintWriter raksta = new PrintWriter(fw) ;
+				fw.write(dzer+" | ");
+				fw.close();
+				JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
+			}else if(dzer.equals("Sprite")){
+				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
+				PrintWriter raksta = new PrintWriter(fw) ;
+				fw.write(dzer+" | ");
+				fw.close();
+				JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
+			}else {
+				JOptionPane.showMessageDialog(null,"Tads izmers nepiestav!","Kluda",JOptionPane.ERROR_MESSAGE);
+			}
+			
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, "Notikusi kluda ierakstot faila","Kluda",JOptionPane.ERROR_MESSAGE);
+			
+		}
+	}
 
 
 	public static void main(String[] args) {
@@ -109,7 +140,8 @@ public class Ternoviks_Pica {
 			break;
 			
 		case "3":
-			
+			String izveleDzer = JOptionPane.showInputDialog("Kola | Fanta | Sprite");
+			izveletiesDzer(izveleDzer);
 			break;
 			
 		case "4":
