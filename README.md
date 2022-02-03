@@ -4,5 +4,5 @@ Java, pizza delivery
 
 ### **Labojumu saraksts**
 
-- [] Izlabots koda gabals (case "5") , ar pareizo cenas apreķināšanu.
+- [x] Izlabots koda gabals (case "5") , ar pareizo cenas apreķināšanu.
   
