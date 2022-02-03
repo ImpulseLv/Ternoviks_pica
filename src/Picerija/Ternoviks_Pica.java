@@ -53,6 +53,39 @@ public class Ternoviks_Pica {
 		JOptionPane.showMessageDialog(null, "Notikusi kluda ierakstot faila","Kluda",JOptionPane.ERROR_MESSAGE);
 	}
 	}
+	
+	public static void izveletiesIzm(String picasIzm) {
+
+		try {
+			if(picasIzm.equals("30cm")) {
+				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
+				PrintWriter raksta = new PrintWriter(fw) ;
+				fw.write(picasIzm+" | ");
+				fw.close();
+				JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
+			}else if(picasIzm.equals("45cm")) {
+				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
+				PrintWriter raksta = new PrintWriter(fw) ;
+				fw.write(picasIzm+" | ");
+				fw.close();
+				JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
+			}else if(picasIzm.equals("60cm")){
+				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
+				PrintWriter raksta = new PrintWriter(fw) ;
+				fw.write(picasIzm+" | ");
+				fw.close();
+				JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
+			}else {
+				JOptionPane.showMessageDialog(null,"Tads izmers nepiestav!","Kluda",JOptionPane.ERROR_MESSAGE);
+			}
+			
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, "Notikusi kluda ierakstot faila","Kluda",JOptionPane.ERROR_MESSAGE);
+			
+		}
+		
+	}
+
 
 	public static void main(String[] args) {
 		
@@ -71,7 +104,8 @@ public class Ternoviks_Pica {
 			break;
 			
 		case "2":
-			
+			String izveleIzm = JOptionPane.showInputDialog("30cm | 45cm | 60cm");
+			izveletiesIzm(izveleIzm);
 			break;
 			
 		case "3":
