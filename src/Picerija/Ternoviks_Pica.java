@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class Ternoviks_Pica {
 	
-	public static void izveletiesPicu(String picasNos) {
+	public static String izveletiesPicu(String picasNos) {
 		try {
 			if(picasNos.equals("Havai")) {
 				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
@@ -52,24 +52,25 @@ public class Ternoviks_Pica {
 	}catch(Exception e){
 		JOptionPane.showMessageDialog(null, "Notikusi kluda ierakstot faila","Kluda",JOptionPane.ERROR_MESSAGE);
 	}
+		return picasNos;
 	}
 	
-	public static void izveletiesIzm(String picasIzm) {
+	public static int izveletiesIzm(int picasIzm) {
 
 		try {
-			if(picasIzm.equals("30cm")) {
+			if(picasIzm>29||picasIzm<31) {
 				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
 				PrintWriter raksta = new PrintWriter(fw) ;
 				fw.write(picasIzm+" | ");
 				fw.close();
 				JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
-			}else if(picasIzm.equals("45cm")) {
+			}else if(picasIzm>44||picasIzm<46) {
 				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
 				PrintWriter raksta = new PrintWriter(fw) ;
 				fw.write(picasIzm+" | ");
 				fw.close();
 				JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
-			}else if(picasIzm.equals("60cm")){
+			}else if(picasIzm>59||picasIzm<61){
 				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
 				PrintWriter raksta = new PrintWriter(fw) ;
 				fw.write(picasIzm+" | ");
@@ -83,10 +84,10 @@ public class Ternoviks_Pica {
 			JOptionPane.showMessageDialog(null, "Notikusi kluda ierakstot faila","Kluda",JOptionPane.ERROR_MESSAGE);
 			
 		}
-		
+		return picasIzm;
 	}
 	
-	public static void izveletiesDzer(String dzer) {
+	public static String izveletiesDzer(String dzer) {
 		try {
 			if(
 					dzer.equals("Kola")) {
@@ -115,9 +116,10 @@ public class Ternoviks_Pica {
 			JOptionPane.showMessageDialog(null, "Notikusi kluda ierakstot faila","Kluda",JOptionPane.ERROR_MESSAGE);
 			
 		}
+		return dzer;
 	}
 	
-public static void iela(String ielasNosaukums) {
+public static String iela(String ielasNosaukums) {
 		
 		try {
 			FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
@@ -129,8 +131,10 @@ public static void iela(String ielasNosaukums) {
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, "Notikusi kluda ierakstot faila","Kluda",JOptionPane.ERROR_MESSAGE);
 		}
-
+		return ielasNosaukums;
 	}
+
+
 
 
 	public static void main(String[] args) {
@@ -141,31 +145,59 @@ public static void iela(String ielasNosaukums) {
 			
 		izvele = JOptionPane.showInputDialog("1-Izveleties picu | 2-Izveleties picas izmeru | 3-Iveleties dzerienu | 4-Ievadit ielu | 5-Uzzinat kopigo cenu | stop");
 		izvele.toLowerCase();
-		
+		String izveleP="";
+		int izveleIzm = 0;
+		String iela = "";
+		String izveleDzer="";
+		double cena=0;
 		switch(izvele) {
 		
 		case "1":
-			String izveleP = JOptionPane.showInputDialog("Piperonni | Salami | Havai | Taiti | Margarita");
+			
+			izveleP = JOptionPane.showInputDialog("Piperonni | Salami | Havai | Taiti | Margarita");
 			izveletiesPicu(izveleP);
 			break;
 			
 		case "2":
-			String izveleIzm = JOptionPane.showInputDialog("30cm | 45cm | 60cm");
+			
+			izveleIzm =Integer.parseInt(JOptionPane.showInputDialog("30 | 45 | 60 - centimetri"));
 			izveletiesIzm(izveleIzm);
 			break;
 			
 		case "3":
-			String izveleDzer = JOptionPane.showInputDialog("Kola | Fanta | Sprite");
+			
+			izveleDzer = JOptionPane.showInputDialog("Kola | Fanta | Sprite");
 			izveletiesDzer(izveleDzer);
 			break;
 			
 		case "4":
-			String iela =JOptionPane.showInputDialog("Ievadi savu ielu!");
+			
+			 iela =JOptionPane.showInputDialog("Ievadi savu ielu!");
 			iela(iela);
 			break;
 			
 		case "5":
+			if(izveleP.equals("Piperonni") || izveleP.equals("Havai")){
+				cena = cena + 7.99;
+			}else {
+				cena = cena + 9.99;
+			}
+			if(izveleIzm>29||izveleIzm<31) {
+				cena = cena + 2;
+			}else if(izveleIzm>44||izveleIzm<46){
+				cena = cena + 3;
+			}else {
+				cena = cena + 4;
+			}
+			if(izveleDzer.equals("Kola")||izveleDzer.equals("Sprite")){
+				cena = cena + 1;
+			}else {
+				cena = cena + 1;
+			}
 			
+		
+			
+			JOptionPane.showMessageDialog(null, "Par visu pasutito jus samaksasiet: "+cena+" EUR");
 			break;
 			
 		case "stop":
