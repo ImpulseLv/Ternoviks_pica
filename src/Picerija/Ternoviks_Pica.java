@@ -116,6 +116,21 @@ public class Ternoviks_Pica {
 			
 		}
 	}
+	
+public static void iela(String ielasNosaukums) {
+		
+		try {
+			FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
+			PrintWriter raksta = new PrintWriter(fw) ;
+			fw.write(ielasNosaukums+" iela");
+			fw.close();
+			JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
+			
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, "Notikusi kluda ierakstot faila","Kluda",JOptionPane.ERROR_MESSAGE);
+		}
+
+	}
 
 
 	public static void main(String[] args) {
@@ -145,7 +160,8 @@ public class Ternoviks_Pica {
 			break;
 			
 		case "4":
-			
+			String iela =JOptionPane.showInputDialog("Ievadi savu ielu!");
+			iela(iela);
 			break;
 			
 		case "5":
