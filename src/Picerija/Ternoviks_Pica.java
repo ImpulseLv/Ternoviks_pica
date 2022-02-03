@@ -58,19 +58,19 @@ public class Ternoviks_Pica {
 	public static int izveletiesIzm(int picasIzm) {
 
 		try {
-			if(picasIzm>29||picasIzm<31) {
+			if(picasIzm==30) {
 				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
 				PrintWriter raksta = new PrintWriter(fw) ;
 				fw.write(picasIzm+" | ");
 				fw.close();
 				JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
-			}else if(picasIzm>44||picasIzm<46) {
+			}else if(picasIzm==45) {
 				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
 				PrintWriter raksta = new PrintWriter(fw) ;
 				fw.write(picasIzm+" | ");
 				fw.close();
 				JOptionPane.showMessageDialog(null,"Saglabats!","Info",JOptionPane.INFORMATION_MESSAGE);
-			}else if(picasIzm>59||picasIzm<61){
+			}else if(picasIzm==60){
 				FileWriter fw = new FileWriter("Ternoviks_Pica.txt",true);
 				PrintWriter raksta = new PrintWriter(fw) ;
 				fw.write(picasIzm+" | ");
@@ -182,11 +182,11 @@ public static String iela(String ielasNosaukums) {
 			}else {
 				cena = cena + 9.99;
 			}
-			if(izveleIzm>29||izveleIzm<31) {
+			if(izveleIzm==30) {
 				cena = cena + 2;
-			}else if(izveleIzm>44||izveleIzm<46){
+			}else if(izveleIzm==45){
 				cena = cena + 3;
-			}else {
+			}else if(izveleIzm==60){
 				cena = cena + 4;
 			}
 			if(izveleDzer.equals("Kola")||izveleDzer.equals("Sprite")){
